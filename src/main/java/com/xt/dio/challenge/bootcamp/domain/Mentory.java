@@ -2,35 +2,22 @@ package com.xt.dio.challenge.bootcamp.domain;
 
 import java.time.LocalDate;
 
-public class Mentory {
+public class Mentory extends Content {
 
-    private String title;
-    private String description;
     private LocalDate date;
 
     public Mentory() {
+        super();
     }
 
     public Mentory(String title, String description, LocalDate date) {
-        this.title = title;
-        this.description = description;
+        super(title, description);
         this.date = date;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public double xpCalculate() {
+        return XP_DEFAULT + 20d;
     }
 
     public LocalDate getDate() {
@@ -39,5 +26,14 @@ public class Mentory {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Mentoria{" +
+                "titulo='" + getTitle() + '\'' +
+                ", descricao='" + getDescription() + '\'' +
+                ", data=" + this.date +
+                '}';
     }
 }

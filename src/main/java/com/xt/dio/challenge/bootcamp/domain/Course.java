@@ -1,34 +1,21 @@
 package com.xt.dio.challenge.bootcamp.domain;
 
-public class Course {
+public class Course extends Content {
 
-    private String title;
-    private String description;
     private Integer workload;
 
     public Course() {
+        super();
     }
 
     public Course(String title, String description, Integer workload) {
-        this.title = title;
-        this.description = description;
+        super(title, description);
         this.workload = workload;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public double xpCalculate() {
+        return XP_DEFAULT + this.workload;
     }
 
     public Integer getWorkload() {
@@ -37,5 +24,14 @@ public class Course {
 
     public void setWorkload(Integer workload) {
         this.workload = workload;
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "titulo='" + getTitle() + '\'' +
+                ", descricao='" + getDescription() + '\'' +
+                ", cargaHoraria=" + this.workload +
+                '}';
     }
 }
