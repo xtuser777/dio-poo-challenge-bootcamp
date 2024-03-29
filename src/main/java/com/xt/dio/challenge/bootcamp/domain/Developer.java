@@ -8,6 +8,13 @@ public class Developer {
     private Set<Content> subscribedContents = new LinkedHashSet<>();
     private Set<Content> doneContents = new LinkedHashSet<>();
 
+    public Developer() {
+    }
+
+    public Developer(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,14 +41,14 @@ public class Developer {
 
     public void bootcampSubscribe(Bootcamp bootcamp){
         this.subscribedContents.addAll(bootcamp.getContents());
-        bootcamp.getSubscriptedDevs().add(this);
+        bootcamp.getSubscribedDevs().add(this);
     }
 
     public void progressUp() {
-        Optional<Content> conteudo = this.subscribedContents.stream().findFirst();
-        if(conteudo.isPresent()) {
-            this.doneContents.add(conteudo.get());
-            this.subscribedContents.remove(conteudo.get());
+        Optional<Content> content = this.subscribedContents.stream().findFirst();
+        if(content.isPresent()) {
+            this.doneContents.add(content.get());
+            this.subscribedContents.remove(content.get());
         } else {
             System.err.println("Você não está matriculado em nenhum conteúdo!");
         }

@@ -30,10 +30,6 @@ public class Mentory extends Content {
 
     @Override
     public String toString() {
-        return "Mentoria{" +
-                "titulo='" + getTitle() + '\'' +
-                ", descricao='" + getDescription() + '\'' +
-                ", data=" + this.date +
-                '}';
+        return "Mentoria{" + "'" + getTitle() + '\'' + '}';
     }
 }

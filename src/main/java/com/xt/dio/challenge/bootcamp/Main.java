@@ -10,34 +10,22 @@ import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) {
-        Course course1 = new Course();
-        course1.setTitle("curso java");
-        course1.setDescription("descrição curso java");
-        course1.setWorkload(8);
+        Course course1 = new Course(
+        "curso java", "descrição curso java", 8);
 
-        Course course2 = new Course();
-        course2.setTitle("Course js");
-        course2.setDescription("descrição curso js");
-        course2.setWorkload(4);
+        Course course2 = new Course(
+        "Course js", "descrição curso js", 4);
 
-        Mentory mentory = new Mentory();
-        mentory.setTitle("mentoria de java");
-        mentory.setDescription("descrição mentoria java");
-        mentory.setDate(LocalDate.now());
+        Mentory mentory = new Mentory(
+        "mentoria de java", "descrição mentoria java", LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
-
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setName("Bootcamp Java Developer");
-        bootcamp.setDescription("Descrição Bootcamp Java Developer");
+        Bootcamp bootcamp = new Bootcamp(
+        "Bootcamp Java Developer", "Descrição Bootcamp Java Developer");
         bootcamp.getContents().add(course1);
         bootcamp.getContents().add(course2);
         bootcamp.getContents().add(mentory);
 
-        Developer devCamila = new Developer();
-        devCamila.setName("Camila");
+        Developer devCamila = new Developer("Camila");
         devCamila.bootcampSubscribe(bootcamp);
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getSubscribedContents());
         devCamila.progressUp();
@@ -49,8 +37,7 @@ public class Main {
 
         System.out.println("-------");
 
-        Developer devJoao = new Developer();
-        devJoao.setName("Joao");
+        Developer devJoao = new Developer("Joao");
         devJoao.bootcampSubscribe(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getSubscribedContents());
         devJoao.progressUp();

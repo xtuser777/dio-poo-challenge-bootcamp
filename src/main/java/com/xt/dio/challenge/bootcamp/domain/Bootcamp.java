@@ -12,8 +12,16 @@ public class Bootcamp {
     private String description;
     private final LocalDate initialDate = LocalDate.now();
     private final LocalDate endDate = initialDate.plusDays(45);
-    private Set<Developer> subscriptedDevs = new HashSet<>();
+    private Set<Developer> subscribedDevs = new HashSet<>();
     private Set<Content> contents = new LinkedHashSet<>();
+
+    public Bootcamp() {
+    }
+
+    public Bootcamp(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public String getName() {
         return name;
@@ -39,12 +47,12 @@ public class Bootcamp {
         return endDate;
     }
 
-    public Set<Developer> getSubscriptedDevs() {
-        return subscriptedDevs;
+    public Set<Developer> getSubscribedDevs() {
+        return subscribedDevs;
     }
 
-    public void setSubscriptedDevs(Set<Developer> subscriptedDevs) {
-        this.subscriptedDevs = subscriptedDevs;
+    public void setSubscribedDevs(Set<Developer> subscribedDevs) {
+        this.subscribedDevs = subscribedDevs;
     }
 
     public Set<Content> getContents() {
@@ -60,11 +68,11 @@ public class Bootcamp {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bootcamp bootcamp = (Bootcamp) o;
-        return Objects.equals(name, bootcamp.name) && Objects.equals(description, bootcamp.description) && Objects.equals(initialDate, bootcamp.initialDate) && Objects.equals(endDate, bootcamp.endDate) && Objects.equals(subscriptedDevs, bootcamp.subscriptedDevs) && Objects.equals(contents, bootcamp.contents);
+        return Objects.equals(name, bootcamp.name) && Objects.equals(description, bootcamp.description) && Objects.equals(initialDate, bootcamp.initialDate) && Objects.equals(endDate, bootcamp.endDate) && Objects.equals(subscribedDevs, bootcamp.subscribedDevs) && Objects.equals(contents, bootcamp.contents);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, initialDate, endDate, subscriptedDevs, contents);
+        return Objects.hash(name, description, initialDate, endDate, subscribedDevs, contents);
     }
 }
